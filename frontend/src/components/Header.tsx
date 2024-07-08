@@ -54,8 +54,8 @@ function Header() {
                 className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
                 aria-label="Global"
             >
-                <div className="flex lg:flex-1">
-                    <a href="/" className="-m-1.5 p-1.5">
+                <div className="flex lg:flex-1 ">
+                    <a href="/" className="-m-1.5 p-1.5 hover:bg-blue-700/30 rounded-md">
                         <span className="sr-only">Booking.com</span>
                         <img
                             className="h-12 w-auto"
@@ -181,7 +181,7 @@ function Header() {
                             text-blue-600 ">
                                 My Booking
                             </Link>
-                            <Link to="/my-hotels" className="text-sm font-bold btn bg-white mx-2 border-none  hover:text-white hover:bg-blue-600
+                            <Link to="/add-hotel" className="text-sm font-bold btn bg-white mx-2 border-none  hover:text-white hover:bg-blue-600
                             text-blue-600 ">
                                 My Hotels
                             </Link>

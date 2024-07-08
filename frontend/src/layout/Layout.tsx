@@ -10,7 +10,7 @@ export default function Layout({ children }: Props) {
             <Header />
             <main>
                 {children}
-                <section className=" bg-white w-full min-h-[800px] mx-auto p-6 mt-9" />
+                <section className=" bg-white w-full mx-auto p-6 mt-9" />
             </main>
             <Footer />
         </div>
