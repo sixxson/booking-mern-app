@@ -73,7 +73,7 @@ export default function ManageHotelForm(
                         type="submit"
                         className="btn btn-info text-white lg:w-1/2 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:text-black"
                     >
-                        {isLoading ? "Saving..." : "Save Hotel"}
+                        {isLoading ? "Create..." : "Create Hotel"}
 
                     </button>
                 </span>

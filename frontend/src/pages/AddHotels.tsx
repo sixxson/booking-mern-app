@@ -10,7 +10,7 @@ export default function AddHotels() {
         isLoading,
     } = useMutation(apiClient.addMyHotel, {
         onSuccess: () => {
-            showToast({ message: "Hotel added successfully", type: "success" })
+            showToast({ message: "Hotel added successfully!", type: "success" })
         },
         onError: () => {
             showToast({ message: "Failed to add hotel", type: "error" })

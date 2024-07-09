@@ -26,7 +26,7 @@ export default function DetailsSection() {
                             focus:border-sky-500 focus:ring-sky-500 block w-full 
                             rounded-md focus:ring-1"
                     {...register("name", { required: "this field is required" })}
-                    placeholder="Name"
+                    placeholder="name"
                 ></input>
                 {errors.name && (
                     <span className="text-red-500 text-sm">
@@ -45,7 +45,7 @@ export default function DetailsSection() {
                             focus:border-sky-500 focus:ring-sky-500 block w-full 
                             rounded-md focus:ring-1"
                         {...register("city", { required: "this field is required" })}
-                        placeholder="City"
+                        placeholder="city"
                     ></input>
                     {errors.city && (
                         <span className="text-red-500 text-sm">
@@ -63,7 +63,7 @@ export default function DetailsSection() {
                             focus:border-sky-500 focus:ring-sky-500 block w-full 
                             rounded-md focus:ring-1"
                         {...register("country", { required: "this field is required" })}
-                        placeholder="Country"
+                        placeholder="country"
                     ></input>
                     {errors.country && (
                         <span className="text-red-500 text-sm">
@@ -82,7 +82,7 @@ export default function DetailsSection() {
                             focus:border-sky-500 focus:ring-sky-500 block w-full 
                             rounded-md focus:ring-1"
                     {...register("description", { required: "this field is required" })}
-                    placeholder="Description"
+                    placeholder="description"
                 ></textarea>
                 {errors.description && (
                     <span className="text-red-500 text-sm">
