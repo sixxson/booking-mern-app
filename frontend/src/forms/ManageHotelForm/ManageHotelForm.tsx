@@ -17,8 +17,8 @@ export type HotelFormData = {
     starRating: number
     facilities: string[]
     imageFiles: FileList
-    adultsCount: number
-    childrenCount: number
+    adultCount: number
+    childCount: number
 }
 
 export type Props = {
@@ -44,8 +44,8 @@ export default function ManageHotelForm(
         formData.append("type", formDataJson.type)
         formData.append("pricePerNight", formDataJson.pricePerNight.toString())
         formData.append("starRating", formDataJson.starRating.toString())
-        formData.append("adultsCount", formDataJson.adultsCount.toString())
-        formData.append("childrenCount", formDataJson.childrenCount.toString())
+        formData.append("adultCount", formDataJson.adultCount.toString())
+        formData.append("childCount", formDataJson.childCount.toString())
         formDataJson.facilities.forEach((facility, index) => {
             formData.append(`facilities[${index}]`, facility)
         })

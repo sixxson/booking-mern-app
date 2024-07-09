@@ -16,7 +16,7 @@ const TypeSection = () => {
             <h2 className='text-base font-bold mt-1 px-3 py-2'>Type</h2>
             <div className='grid grid-cols-5'>
                 {hotelTypes.map((type) => (
-                    <label
+                    <label key={type}
                         className={
                             typeWatch === type
                                 ? " bg-blue-500 text-sm text-center rounded-full font-semibold py-2 m-1 text-white"

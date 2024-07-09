@@ -24,14 +24,14 @@ const GuestsSection = () => {
                             rounded-md focus:ring-1"
                         min={1}
 
-                        {...register("adultsCount", {
+                        {...register("adultCount", {
                             required: "Please enter the number of adults"
                         })}
                     />
                 </label>
-                {errors.adultsCount?.message && (
+                {errors.adultCount?.message && (
                     <span className="text-red-500 text-sm font-bold">
-                        {errors.adultsCount?.message}
+                        {errors.adultCount?.message}
                     </span>
                 )}
                 <label className="text-gray-700 px-3 text-sm font-bold flex-1 leading-7">
@@ -45,14 +45,14 @@ const GuestsSection = () => {
                             rounded-md focus:ring-1"
                         min={0}
 
-                        {...register("childrenCount", {
+                        {...register("childCount", {
                             required: "Please enter the number of children"
                         })}
                     />
                 </label>
-                {errors.childrenCount?.message && (
+                {errors.childCount?.message && (
                     <span className="text-red-500 text-sm font-bold">
-                        {errors.childrenCount?.message}
+                        {errors.childCount?.message}
                     </span>
                 )}
             </div>

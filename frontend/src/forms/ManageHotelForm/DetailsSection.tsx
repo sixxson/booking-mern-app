@@ -120,7 +120,7 @@ export default function DetailsSection() {
                             rounded-md focus:ring-1">
                     <option value="" className='text-sm font-bold'> Select as Rating </option>
                     {[1, 2, 3, 4, 5].map((num) => (
-                        <option value={num} className='text-sm font-bold'>{num}</option>
+                        <option value={num} key={num} className='text-sm font-bold'>{num}</option>
                     ))}
                 </select>
                 {errors.starRating && (
