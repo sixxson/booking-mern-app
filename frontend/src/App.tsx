@@ -6,6 +6,7 @@ import Hero from './components/Hero'
 import SignIn from './pages/SignIn'
 import AddHotels from './pages/AddHotels'
 import { useAppContext } from './contexts/AppContext'
+import Myhotels from './pages/Myhotels'
 
 function App() {
   const { isLoggedIn } = useAppContext()
@@ -50,6 +51,14 @@ function App() {
               </Layout>
             }
           />}
+        <Route
+          path='/my-hotels'
+          element={
+            <Layout>
+              <Myhotels />
+            </Layout>
+          }
+        />
         <Route path="*" element={<Navigate to="/" />}
         />
       </Routes>

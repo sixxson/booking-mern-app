@@ -11,13 +11,16 @@ test.beforeEach(async ({ page }) => {
 
     await expect(page.getByRole("heading", { name: "Sign In" })).toBeVisible();
 
-    await page.locator("[name=email]").fill("2@2.com");
-    await page.locator("[name=password]").fill("password");
+    await page.locator("[name=email]").fill("1@1.com");
+    await page.locator("[name=password]").fill("123qwe");
 
     await page.getByRole("button", { name: "Login" }).click();
 
     await expect(page.getByText("Sign in Successful!")).toBeVisible();
 });
+
+
+
 
 test("should allow user to add a hotel", async ({ page }) => {
     await page.goto(`${UI_URL}add-hotel`);
@@ -27,7 +30,7 @@ test("should allow user to add a hotel", async ({ page }) => {
     await page.locator('[name="country"]').fill("Test Country");
     await page
         .locator('[name="description"]')
-        .fill("This is a description for the Test Hotel");
+        .fill("Lorem ipsum dolor sit amet");
     await page.locator('[name="pricePerNight"]').fill("100");
     await page.selectOption('select[name="starRating"]', "3");
 
@@ -45,7 +48,23 @@ test("should allow user to add a hotel", async ({ page }) => {
     ]);
 
     await page.getByRole("button", { name: "Create Hotel" }).click();
-    await page.waitForTimeout(5000); // Add a delay of 10 second
+    await page.waitForTimeout(3000); // Add a delay of 10 second
     await expect(page.getByText("Hotel added successfully!")).toBeVisible();
 });
 
+test("should display hotel", async ({ page }) => {
+    await page.goto(`${UI_URL}my-hotels`);
+    await expect(page.getByRole("heading", { name: "My Hotels" })).toBeVisible();
+
+    await expect(page.getByText("Test Hotel")).toBeVisible();
+    await expect(page.getByText("Lorem ipsum dolor sit amet")).toBeVisible();
+    await expect(page.getByText("Test City, Test Country")).toBeVisible();
+    await expect(page.getByText("Budget")).toBeVisible();
+    await expect(page.getByText("$ 100 preson night")).toBeVisible();
+    await expect(page.getByText("2 Adults, 2 Childrens")).toBeVisible();
+    await expect(page.getByText("3 Star Rating")).toBeVisible();
+
+    await expect(page.getByRole("link", { name: "View Hotel" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Add Hotel" })).toBeVisible();
+
+});

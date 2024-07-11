@@ -181,7 +181,7 @@ function Header() {
                             text-blue-600 ">
                                 My Booking
                             </Link>
-                            <Link to="/add-hotel" className="text-sm font-bold btn bg-white mx-2 border-none  hover:text-white hover:bg-blue-600
+                            <Link to="/my-hotels" className="text-sm font-bold btn bg-white mx-2 border-none  hover:text-white hover:bg-blue-600
                             text-blue-600 ">
                                 My Hotels
                             </Link>
