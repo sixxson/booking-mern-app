@@ -3,7 +3,7 @@ import path from "path";
 
 const UI_URL = "http://localhost:5174/";
 
-test.beforeEach(async ({ page }) => {
+test.beforeEach(async ({ page }: { page: any }) => {
     await page.goto(UI_URL);
 
     // get the sign in button
@@ -22,7 +22,7 @@ test.beforeEach(async ({ page }) => {
 
 
 
-test("should allow user to add a hotel", async ({ page }) => {
+test("should allow user to add a hotel", async ({ page }: { page: any }) => {
     await page.goto(`${UI_URL}add-hotel`);
 
     await page.locator('[name="name"]').fill("Test Hotel");
@@ -52,7 +52,7 @@ test("should allow user to add a hotel", async ({ page }) => {
     await expect(page.getByText("Hotel added successfully!")).toBeVisible();
 });
 
-test("should display hotel", async ({ page }) => {
+test("should display hotel", async ({ page }: { page: any }) => {
     await page.goto(`${UI_URL}my-hotels`);
     await expect(page.getByRole("heading", { name: "My Hotels" })).toBeVisible();
 
@@ -68,3 +68,13 @@ test("should display hotel", async ({ page }) => {
     await expect(page.getByRole("link", { name: "Add Hotel" })).toBeVisible();
 
 });
+
+// test("show edit hotel", async({ page }) => {
+//     await page.goto(`${UI_URL}my-hotels`)
+
+//     await page.getByRole("link", { name: "View Details" }).click();
+
+//     await page.waitForSelector('[name="name"]', { state: "attached" });
+
+//     await expect(page.locator('[name="name"]')).toHaveValue('Dublin Getaways')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                in")
+// });
