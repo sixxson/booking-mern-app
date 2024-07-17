@@ -17,6 +17,8 @@ import {
 import { Input } from "./ui/input";
 import { Calendar } from "./ui/calendar";
 import { cn } from "../lib/utils";
+import { useNavigate } from "react-router-dom";
+import { useSearchContext } from "../contexts/SearchContext";
 
 export const formSchema = z.object({
   location: z.string().min(2).max(50),
@@ -24,21 +26,21 @@ export const formSchema = z.object({
     from: z.date(),
     to: z.date(),
   }),
-  adults: z
+  adult: z
     .string()
     .min(1, {
       message: "Please select at least 1 adult",
     })
     .max(12, { message: "Max 12 adults Occupancy" }),
-  children: z.string().min(0).max(12, {
+  child: z.string().min(0).max(12, {
     message: "Max 12 children Occupancy",
   }),
-  rooms: z.string().min(1, {
-    message: "Please select at least 1 room",
-  }),
+
 });
 
 function SearchForm() {
+  const search = useSearchContext();
+  const navigate = useNavigate();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -47,14 +49,26 @@ function SearchForm() {
         from: undefined,
         to: undefined,
       },
-      adults: "1",
-      children: "0",
-      rooms: "1",
+      adult: "1",
+      child: "0",
+
     },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    const { location, dates } = values;
+    const checkIn = dates.from;
+    const checkOut = dates.to;
+    const adultCount = parseInt(values.adult);
+    const childCount = parseInt(values.child);
+    search.saveSearchValues(
+      location,
+      checkIn,
+      checkOut,
+      adultCount,
+      childCount
+    );
+    navigate("/search");
   }
 
   return (
@@ -144,7 +158,7 @@ function SearchForm() {
           <div className="grid items-center flex-1">
             <FormField
               control={form.control}
-              name="adults"
+              name="adult"
               render={({ field }) => (
                 <FormItem className="flex flex-col">
                   <FormLabel className="text-white">Adults</FormLabel>
@@ -160,29 +174,13 @@ function SearchForm() {
           <div className="grid items-center flex-1">
             <FormField
               control={form.control}
-              name="children"
+              name="child"
               render={({ field }) => (
                 <FormItem className="flex flex-col">
                   <FormLabel className="text-white">Children</FormLabel>
                   <FormMessage />
                   <FormControl>
                     <Input type="number" placeholder="Children" {...field} />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-          </div>
-
-          <div className="grid items-center flex-1">
-            <FormField
-              control={form.control}
-              name="rooms"
-              render={({ field }) => (
-                <FormItem className="flex flex-col">
-                  <FormLabel className="text-white">Rooms</FormLabel>
-                  <FormMessage />
-                  <FormControl>
-                    <Input type="number" placeholder="rooms" {...field} />
                   </FormControl>
                 </FormItem>
               )}
