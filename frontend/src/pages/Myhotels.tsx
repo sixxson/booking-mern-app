@@ -4,7 +4,7 @@ import * as apiClient from '../api-client'
 import { BsMap, BsBuilding, } from 'react-icons/bs'
 import { BiMoney, BiHotel, BiStar } from 'react-icons/bi'
 
-export default function Myhotels() {
+const Myhotels = () => {
 
     const { data: hotelData } = useQuery(
         "fetchMyHotels",
@@ -92,3 +92,4 @@ export default function Myhotels() {
     )
 }
 
+export default Myhotels

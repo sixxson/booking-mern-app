@@ -1,5 +1,3 @@
-
-
 export default function Footer() {
     return (
         <footer className="bg-[#013B94] py-10">

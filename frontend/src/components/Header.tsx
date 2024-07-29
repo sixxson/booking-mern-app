@@ -394,7 +394,7 @@ function Header() {
                             <div className="flex flex-col py-6 justify-end">
                                 {isLoggedIn ?
                                     (<>
-                                        <Link to="/my-booking" className="text-sm font-semibold leading-6 text-white p-2 my-2  hover:bg-blue-800 rounded-md">
+                                        <Link to="/my-bookings" className="text-sm font-semibold leading-6 text-white p-2 my-2  hover:bg-blue-800 rounded-md">
                                             My Booking
                                         </Link>
                                         <Link to="/my-hotels" className="text-sm font-semibold leading-6 text-white p-2 my-2  hover:bg-blue-800 rounded-md">

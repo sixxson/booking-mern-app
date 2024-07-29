@@ -16,9 +16,9 @@ export default function Hero() {
             <section className="m-4 -mb-14 px-2 lg:px-4">
                 <SearchForm />
             </section>
-            {/* <section className="m-40 -mb-14 px-2 lg:px-4">
+            <section className="m-40 -mb-14 px-2 lg:px-4">
                 <SearchBar />
-            </section> */}
+            </section>
             <section className="mx-auto w-full mt-10 p-6 bg-white rounded-t-lg">   </section>
         </section>
 

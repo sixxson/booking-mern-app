@@ -1,4 +1,3 @@
-"use client";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -17,7 +16,7 @@ import {
 import { Input } from "./ui/input";
 import { Calendar } from "./ui/calendar";
 import { cn } from "../lib/utils";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useSearchContext } from "../contexts/SearchContext";
 
 export const formSchema = z.object({
@@ -40,7 +39,7 @@ export const formSchema = z.object({
 
 function SearchForm() {
   const search = useSearchContext();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -68,7 +67,13 @@ function SearchForm() {
       adultCount,
       childCount
     );
-    navigate("/search");
+    console.log(location,
+      checkIn,
+      checkOut,
+      adultCount,
+      childCount);
+
+    // navigate("/search");
   }
 
   return (
