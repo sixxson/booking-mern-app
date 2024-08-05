@@ -164,7 +164,7 @@ function SearchForm() {
                   <FormLabel className="text-white">Adults</FormLabel>
                   <FormMessage />
                   <FormControl>
-                    <Input type="number" placeholder="Adults" {...field} />
+                    <Input type="number" min={1} max={20} placeholder="Adults" {...field} />
                   </FormControl>
                 </FormItem>
               )}
@@ -180,7 +180,7 @@ function SearchForm() {
                   <FormLabel className="text-white">Children</FormLabel>
                   <FormMessage />
                   <FormControl>
-                    <Input type="number" placeholder="Children" {...field} />
+                    <Input type="number" min={0} max={20} placeholder="Children" {...field} />
                   </FormControl>
                 </FormItem>
               )}
