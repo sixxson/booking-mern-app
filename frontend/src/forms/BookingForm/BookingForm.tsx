@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 import { useMutation } from "react-query";
 import * as apiClient from "../../api-client";
 import { useAppContext } from "../../contexts/AppContext";
+import React from "react";
 
 type Props = {
     currentUser: UserType;
