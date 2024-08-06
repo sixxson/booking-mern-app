@@ -175,7 +175,7 @@ function Header() {
                     </Link> */}
                     {isLoggedIn ?
                         (<div>
-                            <Link to="/my-booking" className="btn text-sm font-bold bg-white mx-2 border-none  hover:text-white hover:bg-blue-600
+                            <Link to="/my-bookings" className="btn text-sm font-bold bg-white mx-2 border-none  hover:text-white hover:bg-blue-600
                             text-blue-600 ">
                                 My Booking
                             </Link>
