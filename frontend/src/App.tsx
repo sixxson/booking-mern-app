@@ -10,6 +10,7 @@ import Myhotels from './pages/Myhotels'
 import EditHotel from './pages/EditHotel'
 import Search from './pages/Search'
 import Detail from './pages/Detail'
+import Booking from './pages/Booking'
 
 function App() {
   const { isLoggedIn } = useAppContext()
@@ -51,31 +52,42 @@ function App() {
             <SignIn />
           </Layout>
         } />
-        {isLoggedIn &&
-          <Route
-            path='/add-hotel'
-            element={
-              <Layout>
-                <AddHotels />
-              </Layout>
-            }
-          />}
-        <Route
-          path='/edit-hotel/:hotelId'
-          element={
-            <Layout>
-              <EditHotel />
-            </Layout>
-          }
-        />
-        <Route
-          path='/my-hotels'
-          element={
-            <Layout>
-              <Myhotels />
-            </Layout>
-          }
-        />
+        {isLoggedIn && (
+          <>
+            <Route
+              path="/hotel/:hotelId/booking"
+              element={
+                <Layout>
+                  <Booking />
+                </Layout>
+              }
+            />
+            <Route
+              path='/add-hotel'
+              element={
+                <Layout>
+                  <AddHotels />
+                </Layout>
+              }
+            />
+            <Route
+              path='/edit-hotel/:hotelId'
+              element={
+                <Layout>
+                  <EditHotel />
+                </Layout>
+              }
+            />
+            <Route
+              path='/my-hotels'
+              element={
+                <Layout>
+                  <Myhotels />
+                </Layout>
+              }
+            />
+          </>
+        )}
         <Route path="*" element={<Navigate to="/" />}
         />
       </Routes>
